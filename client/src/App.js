@@ -3,7 +3,7 @@ import Chapters from "./components/Chapters";
 
 
 function App() {
-  const [ chapters, setchapters ] = useState([
+  const [ chapters, setChapters ] = useState([
     {
       blurb: 'This is a brief summary',
       summary: 'This is a much longer summary',
@@ -21,7 +21,7 @@ function App() {
             subtitle: 'This is the chapter subtitle',
             text: 'This is the text of the chapter',
             //likes: 0,
-            //children: 
+            children: []
             },
         ] 
     },
@@ -43,7 +43,7 @@ function App() {
           subtitle: 'This is the chapter subtitle',
           text: 'This is the text of the chapter',
           //likes: 0,
-          //children: 
+          children: []
           },
           {
            blurb: 'This is a brief summary',
@@ -53,55 +53,59 @@ function App() {
            subtitle: 'This is the chapter subtitle',
            text: 'This is the text of the chapter',
            //likes: 0,
-           //children: 
+           children:  []
           },
                     {
           blurb: 'This is a brief summary',
           summary: 'This is a much longer summary',
-          id: 3,
+          id: 5,
           title: 'This is the chapter title',
           subtitle: 'This is the chapter subtitle',
           text: 'This is the text of the chapter',
           //likes: 0,
-          //children: 
+          children: [],
           },
           {
            blurb: 'This is a brief summary',
            summary: 'This is a much longer summary',
-           id: 4,
+           id: 6,
            title: 'This is the chapter title',
            subtitle: 'This is the chapter subtitle',
            text: 'This is the text of the chapter',
            //likes: 0,
-           //children: 
+           children: []
           },
           {
             blurb: 'This is a brief summary',
             summary: 'This is a much longer summary',
-            id: 3,
+            id: 7,
             title: 'This is the chapter title',
             subtitle: 'This is the chapter subtitle',
             text: 'This is the text of the chapter',
             //likes: 0,
-            //children: 
+            children: []
             },
           {
             blurb: 'This is a brief summary',
             summary: 'This is a much longer summary',
-            id: 4,
+            id: 8,
             title: 'This is the chapter title',
             subtitle: 'This is the chapter subtitle',
             text: 'This is the text of the chapter',
             //likes: 0,
-            //children: 
+            children: []
           },
         ] 
     },
   ])
 
+  const onChooseChild = (child) => {
+    setChapters([ ...chapters, child ])
+  }
+
   return (
     <div className="App">
-      <Chapters chapters={chapters}/>
+      <Chapters chapters={chapters} onChooseChild={onChooseChild}/>
     </div>
   );
 }
