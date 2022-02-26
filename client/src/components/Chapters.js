@@ -1,9 +1,10 @@
 import Chapter from "./Chapter"
 import ChapterPreview from "./ChapterPreview"
 import HorizontalScroll from 'react-scroll-horizontal'
-import ChapterForm from './ChapterForm'
+import ChapterForm from "./ChapterForm"
+import LoginForm from './LoginForm'
 
-const Chapters = ({ chapters, onChooseChild, updateLikes }) => {
+const Chapters = ({ chapters, onChooseChild, updateLikes, onSubmitChapter }) => {
   const noMoreChapters = { id: "-1", title: "This is the end of the story...", subtitle: "Or is it?", text: "It's time to write your own story!", likes: [-1] }
   
   return (

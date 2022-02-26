@@ -109,7 +109,8 @@ function App() {
       chapters.find(elem => (elem.id == id)).likes.push(0)
     else
       chapters.find(elem => (elem.id == id)).likes.pop()
-      
+  }
+
   const onSubmitChapter = (data) => {
 
   }
@@ -119,7 +120,7 @@ function App() {
       <Chapters chapters={chapters} onChooseChild={onChooseChild} updateLikes={updateLikes} onSubmitChapter={onSubmitChapter}/>
     </div>
   );
-}
+
 }
 
 export default App
