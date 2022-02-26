@@ -5,25 +5,47 @@ import Pages from "./components/Pages";
 function App() {
   const [ pages, setPages ] = useState([
     {
-      //summary_short: 'This is a brief summary',
-      //summary_long: 'This is a much longer summary',
+      blurb: 'This is a brief summary',
+      summary: 'This is a much longer summary',
       id: 0,
       title: 'This is the page title',
       subtitle: 'This is the page subtitle',
       text: 'This is the text of the page',
       //likes: 0,
-      //children: 
+      children: [
+          {
+            blurb: 'This is a brief summary',
+            summary: 'This is a much longer summary',
+            id: 2,
+            title: 'This is the page title',
+            subtitle: 'This is the page subtitle',
+            text: 'This is the text of the page',
+            //likes: 0,
+            //children: 
+            },
+        ] 
     },
 
     {
-      //summary_short: 'This is a brief summary',
-      //summary_long: 'This is a much longer summary',
+      blurb: 'This is a brief summary',
+      summary: 'This is a much longer summary',
       id: 1,
       title: 'This is the page title',
       subtitle: 'This is the page subtitle',
       text: 'This is the text of the page',
       //likes: 0,
-      //children: 
+      children: [
+          {
+          blurb: 'This is a brief summary',
+          summary: 'This is a much longer summary',
+          id: 3,
+          title: 'This is the page title',
+          subtitle: 'This is the page subtitle',
+          text: 'This is the text of the page',
+          //likes: 0,
+          //children: 
+          },
+        ] 
     },
   ])
 
