@@ -17,12 +17,7 @@ var flash = require('express-flash')
 var session = require('express-session')
 
 var app = express();
-const initializePassport = require('./passport-config')
-initializePassport(
-  passport,
-  email => users.find(user => user.email === email),
-  id => users.find(user => user.id === id)
-)
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -43,7 +38,7 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-const uri = "mongodb+srv://rishi:rishi@cluster0.ggh9i.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const uri = "mongodb+srv://rishi:rishi@cluster0.ggh9i.mongodb.net/hoth9db?retryWrites=true&w=majority"
 mongoose.connect(uri);
 const connection = mongoose.connection;
 connection.once('open', () => {
@@ -52,15 +47,7 @@ connection.once('open', () => {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-
-
-
-app.use('/chapter',chapterRouter);
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+app.use('/chapters',chapterRouter);
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -72,5 +59,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(process.env.PORT || 5000);
 
 module.exports = app;

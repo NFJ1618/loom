@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
+const ObjectId = mongoose.Types.ObjectId;
 
 const chapterSchema = new Schema ({
     blurb: {type: String, required: true, maxLength: 50},
@@ -8,7 +8,7 @@ const chapterSchema = new Schema ({
     text: {type: String, required: true},
     title: String,
     subtitle: String,
-    likes: {type: Number, required: true},
+    likes: {type: [ObjectId], required: true},
 
     group: {type: ObjectId, required: true},
     contributor: {type: ObjectId, required: true, immutable: true},

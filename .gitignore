@@ -9,6 +9,7 @@ lerna-debug.log*
 # Package Locks
 api/package-lock.json
 client/package-lock.json
+package-lock.json
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json

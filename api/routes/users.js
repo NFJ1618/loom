@@ -3,6 +3,12 @@ var router = express.Router();
 var bcrypt = require('bcrypt');
 const passport = require('passport')
 let User = require('../models/user.model')
+const initializePassport = require('../passport-config')
+ initializePassport(
+  passport,
+  name => User.findOne({username: name}),
+  id =>  User.findOne({_id: id})
+)
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -10,6 +16,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.route('/addUser').post(async (req, res) => {
+  console.log("Request Received!");
   const username = req.body.username;
   const password = req.body.password;
   const groupId = req.body.groupid;
