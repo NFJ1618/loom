@@ -4,7 +4,7 @@ const ObjectId = Schema.ObjectId;
 
 const groupSchema = new Schema ({
     name: {type: String, required: True},
-    initialChapter: {type: ObjectId, required: True},
+    initialChapter: ObjectId,
     users: {type: [ObjectId], required: true}
 });
 
