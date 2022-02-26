@@ -11,7 +11,6 @@ const Chapters = ({ chapters, onChooseChild }) => {
       {chapters.map((chapter) => (
           <Chapter key={chapter.id} chapter={chapter}/>
           ))}
-      <LoginForm></LoginForm>
       {chapters[chapters.length - 1].children.length > 0 ?
       <HorizontalScroll
         pageLock = {true}
