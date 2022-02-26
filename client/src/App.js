@@ -11,7 +11,7 @@ function App() {
       title: 'This is the chapter title',
       subtitle: 'This is the chapter subtitle',
       text: 'This is the text of the chapter',
-      likes: 0,
+      likes: [],
       children: [
           {
             blurb: 'This is a brief summary',
@@ -20,7 +20,7 @@ function App() {
             title: 'This is the chapter title',
             subtitle: 'This is the chapter subtitle',
             text: 'This is the text of the chapter',
-            likes: 0,
+            likes: [],
             children: []
             },
         ] 
@@ -33,7 +33,7 @@ function App() {
       title: 'This is the chapter title',
       subtitle: 'This is the chapter subtitle',
       text: 'This is the text of the chapter',
-      likes: 0,
+      likes: [],
       children: [
           {
           blurb: 'This is a brief summary',
@@ -42,7 +42,7 @@ function App() {
           title: 'This is the chapter title',
           subtitle: 'This is the chapter subtitle',
           text: 'This is the text of the chapter',
-          likes: 0,
+          likes: [],
           children: []
           },
           {
@@ -52,7 +52,7 @@ function App() {
            title: 'This is the chapter title',
            subtitle: 'This is the chapter subtitle',
            text: 'This is the text of the chapter',
-           likes: 0,
+           likes: [],
            children:  []
           },
                     {
@@ -62,7 +62,7 @@ function App() {
           title: 'This is the chapter title',
           subtitle: 'This is the chapter subtitle',
           text: 'This is the text of the chapter',
-          likes: 0,
+          likes: [],
           children: [],
           },
           {
@@ -72,7 +72,7 @@ function App() {
            title: 'This is the chapter title',
            subtitle: 'This is the chapter subtitle',
            text: 'This is the text of the chapter',
-           likes: 0,
+           likes: [],
            children: []
           },
           {
@@ -82,7 +82,7 @@ function App() {
             title: 'This is the chapter title',
             subtitle: 'This is the chapter subtitle',
             text: 'This is the text of the chapter',
-            likes: 0,
+            likes: [],
             children: []
             },
           {
@@ -92,7 +92,7 @@ function App() {
             title: 'This is the chapter title',
             subtitle: 'This is the chapter subtitle',
             text: 'This is the text of the chapter',
-            likes: 0,
+            likes: [],
             children: []
           },
         ] 
@@ -104,9 +104,16 @@ function App() {
     setChapters([ ...chapters, next ])
   }
 
+  const updateLikes = (id,v) => {
+    if (v == 1)
+      chapters.find(elem => (elem.id == id)).likes.push(0)
+    else
+      chapters.find(elem => (elem.id == id)).likes.pop()
+  }
+
   return (
     <div className="App">
-      <Chapters chapters={chapters} onChooseChild={onChooseChild}/>
+      <Chapters chapters={chapters} onChooseChild={onChooseChild} updateLikes={updateLikes}/>
     </div>
   );
 }

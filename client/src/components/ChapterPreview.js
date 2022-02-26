@@ -5,14 +5,14 @@ const ChapterPreview = ( { likes, blurb, summary, id, onChooseChild } ) => {
   return (
     <div className='Chapter-preview' onClick={() => onChooseChild(id)}>
         <h1>{blurb}</h1>
-        <h2>{likes}</h2>
+        <h2>{likes.length}</h2>
         <p>{summary}</p>
     </div>
   )
 }
 
 ChapterPreview.propTypes = {
-  likes: PropTypes.number.isRequired,
+  likes: PropTypes.array.isRequired,
   blurb: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired, // Check id type
