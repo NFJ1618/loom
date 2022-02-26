@@ -56,6 +56,11 @@ router.route('/login').post(function(req, res, next) {
   })(req, res, next);
 });
 
+router.post('/logout', (req, res) => {
+  req.logOut()
+  res.send("logged out")
+})
+
 // function checkAuthenticated(req, res, next) {
 //   if (req.isAuthenticated()) {
 //     return next()
