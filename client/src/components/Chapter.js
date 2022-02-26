@@ -1,4 +1,5 @@
 import './Chapter.css'
+import './ChapterForm.js'
 
 const Chapter = ({ chapter }) => {
   return (

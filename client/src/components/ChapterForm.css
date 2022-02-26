@@ -1,0 +1,13 @@
+.ChapterForm {
+    margin-left: 10%;
+}
+
+.form-input {
+    width: 50%;
+    margin: 1%;
+    resize: none;
+}
+
+.form-button {
+    margin: 1%;
+}
