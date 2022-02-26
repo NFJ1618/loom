@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.route('/addUser').post(async (req, res) => {
+  console.log("Request Received!");
   const username = req.body.username;
   const password = req.body.password;
   const groupId = req.body.groupid;

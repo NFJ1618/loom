@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var chapterRouter = require('./chapters');
+var chapterRouter = require('./routes/chapters');
 
 var app = express();
 
@@ -21,9 +21,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors({origin: 'http://localhost:3000'}))
+//app.use(cors({origin: 'http://localhost:3000'}))
 
-const uri = "mongodb+srv://rishi:rishi@cluster0.ggh9i.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const uri = "mongodb+srv://rishi:rishi@cluster0.ggh9i.mongodb.net/hoth9db?retryWrites=true&w=majority"
 mongoose.connect(uri);
 const connection = mongoose.connection;
 connection.once('open', () => {
@@ -32,15 +32,7 @@ connection.once('open', () => {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-
-
-
 app.use('/chapter',chapterRouter);
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -52,5 +44,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(process.env.PORT || 5000);
 
 module.exports = app;
