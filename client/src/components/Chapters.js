@@ -1,7 +1,6 @@
 import Chapter from "./Chapter"
 import ChapterPreview from "./ChapterPreview"
 import HorizontalScroll from 'react-scroll-horizontal'
-import ChapterForm from './ChapterForm'
 import LoginForm from './LoginForm'
 
 const Chapters = ({ chapters, onChooseChild }) => {
