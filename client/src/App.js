@@ -104,9 +104,13 @@ function App() {
     setChapters([ ...chapters, next ])
   }
 
+  const onSubmitChapter = (data) => {
+
+  }
+
   return (
     <div className="App">
-      <Chapters chapters={chapters} onChooseChild={onChooseChild}/>
+      <Chapters chapters={chapters} onChooseChild={onChooseChild} onSubmitChapter={onSubmitChapter}/>
     </div>
   );
 }
