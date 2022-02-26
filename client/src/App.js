@@ -45,6 +45,16 @@ function App() {
           //likes: 0,
           //children: 
           },
+          {
+            blurb: 'This is a brief summary',
+            summary: 'This is a much longer summary',
+            id: 4,
+            title: 'This is the chapter title',
+            subtitle: 'This is the chapter subtitle',
+            text: 'This is the text of the chapter',
+            //likes: 0,
+            //children: 
+            },
         ] 
     },
   ])
