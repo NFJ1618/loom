@@ -1,4 +1,4 @@
-.Page {
+.Chapter {
     text-align: center;
     border: solid;
     background-color: #282c34;
@@ -11,7 +11,7 @@
     color: white;
 }
 
-.Page-preview {
+.Chapter-preview {
     text-align: center;
     border: solid;
     background-color: #282c34;
