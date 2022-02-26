@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
+const ObjectId = mongoose.Types.ObjectId;
 
 const userSchema = new Schema({
     username: {
@@ -17,7 +17,8 @@ const userSchema = new Schema({
     },
     groups: {type: [ObjectId], required: true},
     savedStories: [[ObjectId]],
-    contributions: [ObjectId]
+    contributions: [ObjectId],
+    likedPosts: [ObjectId],
 });
 
 const User = mongoose.model('User', userSchema);

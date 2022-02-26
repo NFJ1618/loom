@@ -32,7 +32,7 @@ connection.once('open', () => {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/chapter',chapterRouter);
+app.use('/chapters',chapterRouter);
 
 // error handler
 app.use(function(err, req, res, next) {
