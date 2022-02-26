@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcrypt');
+const passport = require('passport')
 let User = require('../models/user.model')
 
 /* GET users listing. */
@@ -29,6 +30,39 @@ router.route('/addUser').post(async (req, res) => {
     res.status(400).json('Error' + err);
   }
 });
+
+router.route('/login').post(function(req, res, next) {
+  passport.authenticate('local', function(err, user, info) {
+    if (err) {
+      return next(err); // will generate a 500 error
+    }
+    // Generate a JSON response reflecting authentication status
+    if (! user) {
+      return res.send(401,{ success : false, message : 'authentication failed' });
+    }
+    req.login(user, function(err){
+      if(err){
+        return next(err);
+      }
+      return res.send({ success : true, message : 'authentication succeeded' });        
+    });
+  })(req, res, next);
+});
+
+// function checkAuthenticated(req, res, next) {
+//   if (req.isAuthenticated()) {
+//     return next()
+//   }
+
+//   res.redirect('/login')
+// }
+
+// function checkNotAuthenticated(req, res, next) {
+//   if (req.isAuthenticated()) {
+//     return res.redirect('/')
+//   }
+//   next()
+// }
 
 
 

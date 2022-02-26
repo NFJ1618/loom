@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -5,12 +9,20 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 var mongoose = require('mongoose');
-
+const passport = require('passport')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var chapterRouter = require('./chapters');
+var chapterRouter = require('./routes/chapters');
+var flash = require('express-flash')
+var session = require('express-session')
 
 var app = express();
+const initializePassport = require('./passport-config')
+initializePassport(
+  passport,
+  email => users.find(user => user.email === email),
+  id => users.find(user => user.id === id)
+)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,6 +34,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({origin: 'http://localhost:3000'}))
+app.use(flash())
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
 
 const uri = "mongodb+srv://rishi:rishi@cluster0.ggh9i.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 mongoose.connect(uri);
