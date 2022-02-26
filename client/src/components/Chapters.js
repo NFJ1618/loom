@@ -2,6 +2,7 @@ import Chapter from "./Chapter"
 import ChapterPreview from "./ChapterPreview"
 import HorizontalScroll from 'react-scroll-horizontal'
 import ChapterForm from './ChapterForm'
+import LoginForm from './LoginForm'
 
 const Chapters = ({ chapters, onChooseChild }) => {
   const noMoreChapters = { id: "-1", title: "This is the end of the story...", subtitle: "Or is it?", text: "It's time to write your own story!" }
@@ -11,6 +12,7 @@ const Chapters = ({ chapters, onChooseChild }) => {
       {chapters.map((chapter) => (
           <Chapter key={chapter.id} chapter={chapter}/>
           ))}
+      <LoginForm></LoginForm>
       {chapters[chapters.length - 1].children.length > 0 ?
       <HorizontalScroll
         pageLock = {true}
