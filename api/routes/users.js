@@ -11,11 +11,11 @@ router.get('/', function(req, res, next) {
 router.route('/addUser').post(async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
-
+  const groupId = req.body.groupid;
   try {
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(password, salt);
-    const newUser = new User({username: username, password: hashedPassword, });
+    const newUser = new User({username: username, password: hashedPassword, group: groupId});
     
     User.exists({username: username}).then(exists => {
       if (exists) {
@@ -29,6 +29,8 @@ router.route('/addUser').post(async (req, res) => {
     res.status(400).json('Error' + err);
   }
 });
+
+
 
 
 
