@@ -1,26 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import "./LoginForm.css"
 
 const LoginForm = () => {
-    const { register, handleSubmit } = useForm();
+    const [userInput, setUserInput] = useState(
+        {
+            username: "",
+            password: ""
+        }
+    )
 
-    const sendData = (data) => {
-        console.log(data);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Use Axios POST request later
+        console.log(userInput);
     }
 
     return (
-        <div className='Login-form'>
-            <form onSubmit={handleSubmit(data => sendData(data))}>
-                <input 
-                    type="text"
-                    className="login-username"
-                    {...register("username", {required: true})} />
-                <input 
-                    type="password"
-                    className="login-password"
-                    {...register("password", {required: true})} />
-                <button className="login-button" type="submit">Login</button>
+        <div className = "LoginForm">
+            <h3>Login</h3>
+            <form onSubmit={e => handleSubmit(e)}>
+            <h2>Username: </h2>
+            <input 
+                type="text"
+                name="username"
+                value={userInput.username}
+                onChange={e => setUserInput({...userInput, username: e.target.value})}
+                required
+            />
+            <h2>Password: </h2>
+            <input 
+                type="password"
+                name="password"
+                value={userInput.password}
+                onChange={e => setUserInput({...userInput, password: e.target.value})}
+                required
+            />
+             <button type="submit" className="loginButton">Login</button>
             </form>
         </div>
     )
