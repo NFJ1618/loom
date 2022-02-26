@@ -15,7 +15,7 @@ router.route('/addUser').post(async (req, res) => {
   try {
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(password, salt);
-    const newUser = new User({username: username, password: hashedPassword, group: groupId});
+    const newUser = new User({username: username, password: hashedPassword, groups: [groupId]});
     
     User.exists({username: username}).then(exists => {
       if (exists) {
