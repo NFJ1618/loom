@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import Pages from "./components/Pages";
-import '../src/App.css'
 
 
 function App() {
