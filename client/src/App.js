@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="App">
-      {pages.length > 0 ? <Pages /> : "No current pages to display"}
+      {pages.length > 0 ? <Pages pages={pages}/> : "No current pages to display"}
     </div>
   );
 }

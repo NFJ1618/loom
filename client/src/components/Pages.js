@@ -1,6 +1,6 @@
 import Page from "./Page"
 
-const Pages = () => {
+const Pages = ({ pages }) => {
   return (
     <div>
         <Page />
