@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Pages from "./components/Page";
+import Pages from "./components/Pages";
 import '../src/App.css'
 
 
@@ -9,6 +9,17 @@ function App() {
       //summary_short: 'This is a brief summary',
       //summary_long: 'This is a much longer summary',
       id: 0,
+      title: 'This is the page title',
+      subtitle: 'This is the page subtitle',
+      text: 'This is the text of the page',
+      //likes: 0,
+      //children: 
+    },
+
+    {
+      //summary_short: 'This is a brief summary',
+      //summary_long: 'This is a much longer summary',
+      id: 1,
       title: 'This is the page title',
       subtitle: 'This is the page subtitle',
       text: 'This is the text of the page',
