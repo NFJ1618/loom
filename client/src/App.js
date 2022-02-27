@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import Chapters from "./components/Chapters";
-
+import LoginForm from "./components/LoginForm";
+import ChapterForm from './components/ChapterForm';
+import Home from './components/Home';
 
 function App() {
   const [ chapters, setChapters ] = useState([
@@ -114,12 +116,19 @@ function App() {
   const onSubmitChapter = (data) => {
 
   }
-
+  
+  return(
+    <div className="App">
+      <Home></Home>
+    </div>
+  )
+  /*
   return (
     <div className="App">
+
       <Chapters chapters={chapters} onChooseChild={onChooseChild} updateLikes={updateLikes} onSubmitChapter={onSubmitChapter}/>
     </div>
-  );
+  );*/
 
 }
 
