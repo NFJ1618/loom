@@ -3,25 +3,31 @@ import { useForm } from "react-hook-form";
 import Chapter from "./Chapter";
 import '../styles/ChapterForm.css'
 
-const ChapterForm = ({ onSubmitChapter }) => {
+const ChapterForm = ({ onSubmitChapter, setRenderForm, setForked }) => {
     const [text, setText] = useState("");
     const [title, setTitle] = useState("");
     const [subtitle, setSubtitle] = useState("");
     const [blurb, setBlurb] = useState("");
     const [summary, setSummary] = useState("");
 
-    const onSubmit = (e) => {
-        console.log(e)
+    const onSubmit = (e, bool) => {
+        e.preventDefault()
+        if (!bool) {
+            setRenderForm(false)
+            setForked(false)
+            return false
+        }
         if (text.length == 0) {
             alert("Please add some text before you submit your chapter!")
-            return
+            return false
         }
         if (blurb.length == 0 || blurb.length >= 50) {
             alert("Please write a blurb with less than 50 characters before submitting!")
+            return false
         }
-    
         const data = { text: text, title: title, subtitle: subtitle, blurb: blurb, summary: summary }
         onSubmitChapter(data)
+        return false
     }
 
     return (
@@ -47,7 +53,8 @@ const ChapterForm = ({ onSubmitChapter }) => {
             <textarea type='textarea' placeholder="Add Summary" value={summary} onChange={(e) => setSummary(e.target.value)}/>
         </div>
 
-        <input className="btn btn-block" type='submit' value="Save Chapter" onChange={(e) => onSubmit(e.target.value)}/>
+        <input className="btn btn-block" type='submit' value="Save Chapter" onChange={(e) => onSubmit(e, true)}/><input 
+        className="btn btn-block" type='submit' value="Cancel" onChange={(e) => onSubmit(e, false)}/>
     </form>
   )
 }
