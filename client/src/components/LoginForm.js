@@ -36,30 +36,35 @@ const LoginForm = () => {
                 <Link to="/home">Home</Link>
                 <Link to="/signup">Sign up</Link>
                 <Link to="/groups">Groups</Link>
-                <Link to="/login" className="log">Log in</Link>
             </div>
-            <h3>Login</h3>
-            <form onSubmit={e => handleSubmit(e)}>
-            <h2>Username: </h2>
-            <input 
-                type="text"
-                name="username"
-                value={userInput.username}
-                onChange={e => setUserInput({...userInput, username: e.target.value})}
-                required
-            />
-            <h2>Password: </h2>
-            <input 
-                type="password"
-                name="password"
-                value={userInput.password}
-                onChange={e => setUserInput({...userInput, password: e.target.value})}
-                required
-            />
+            <div className="header-word">Login</div>
+            <div>
+            <form className="my-form" onSubmit={e => handleSubmit(e)}>
+                <div className="input-field" style={{margin: "0px"}}>
+                    <div>Username: </div>
+                    <input 
+                        type="text"
+                        name="username"
+                        value={userInput.username}
+                        onChange={e => setUserInput({...userInput, username: e.target.value})}
+                        required
+                    />
+                </div>
+                <div className="input-field">
+                    <div>Password: </div>
+                    <input 
+                        type="password"
+                        name="password"
+                        value={userInput.password}
+                        onChange={e => setUserInput({...userInput, password: e.target.value})}
+                        required
+                    />
+                </div>
             <p></p>
              <button type="submit" className="loginButton">Login</button>
             </form>
-        </div>
+        </div> 
+    </div>
     )
 }
 
