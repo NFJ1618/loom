@@ -40,8 +40,7 @@
     top:0px;
     right:0px;
 }
-
-.LoginForm {
+.homepage {
     text-align: center;
     border: solid;
     background-color: #282c34;
@@ -53,3 +52,4 @@
     font-size: calc(10px + 2vmin);
     color: white;
 }
+
