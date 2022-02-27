@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Chapters from "./components/Chapters";
+import './App.css'
 const axios = require('axios');
 
 

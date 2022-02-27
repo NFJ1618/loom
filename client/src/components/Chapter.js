@@ -23,8 +23,9 @@ const Chapter = ({ chapter, updateLikes, setRenderForm, forked, setForked, setID
 
   return (
     <div className='Chapter'>
-        <h1>{chapter.title}</h1>
-        <h2>{chapter.subtitle}</h2>
+        <h2 style={{margin: "25px 0px"}}>{chapter.title}</h2>
+        <h4 style={{margin: "0px"}}>{chapter.subtitle}</h4>
+        {chapter.contributor.username && <h4 className='author-box'>{chapter.contributor.username}</h4>}
         {
           (chapter.likes && chapter.likes[0] != -1 || !chapter.likes) && 
           <div>
@@ -41,7 +42,6 @@ const Chapter = ({ chapter, updateLikes, setRenderForm, forked, setForked, setID
         }
 
         <p>{chapter.text}</p>
-        {chapter.contributor.username && <h4>{chapter.contributor.username}</h4>}
     </div>
   )
 }
