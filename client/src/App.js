@@ -136,9 +136,13 @@ function App() {
 
   }
 
+  const handleFork = () => {
+
+  }
+
   return (
     <div className="App">
-      <Chapters chapters={chapters} onChooseChild={onChooseChild} updateLikes={updateLikes} onSubmitChapter={onSubmitChapter}/>
+      <Chapters chapters={chapters} onChooseChild={onChooseChild} updateLikes={updateLikes} onSubmitChapter={onSubmitChapter} handleFork={handleFork}/>
     </div>
   );
 
