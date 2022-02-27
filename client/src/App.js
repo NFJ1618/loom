@@ -95,9 +95,9 @@ function App() {
     blurb: 'This is a brief summary',
     summary: 'This is clearly a much longer summary',
     id: "621aeb86573732e27fbcb89b",
-    title: 'The Most Meaningful Text',
-    subtitle: 'Truly artistic prose',
-    text: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+    title: 'HOTH: A Year Apart',
+    subtitle: 'A truly legendary redemption arc',
+    text: "One year ago, we participated in HO(ff)TH. It was tragic. We knew nothing, We were a meme. However, things are different now and we actually made something. Colossal W lads!",
     likes: ["a", "b", "c"],
     contributor: {
       username: "MrDeez",
