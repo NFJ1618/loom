@@ -9,10 +9,12 @@ const ChapterForm = ({ onSubmitChapter, setRenderForm, setForked }) => {
     const [subtitle, setSubtitle] = useState("");
     const [blurb, setBlurb] = useState("");
     const [summary, setSummary] = useState("");
+    const [cancel, setCancel] = useState(false)
 
-    const onSubmit = (e, bool) => {
+    const onSubmit = (e) => {
         e.preventDefault()
-        if (!bool) {
+        if (cancel) {
+            setCancel(false)
             setRenderForm(false)
             setForked(false)
             return false
@@ -27,6 +29,8 @@ const ChapterForm = ({ onSubmitChapter, setRenderForm, setForked }) => {
         }
         const data = { text: text, title: title, subtitle: subtitle, blurb: blurb, summary: summary }
         onSubmitChapter(data)
+        setRenderForm(false)
+        setForked(false)
         return false
     }
 
@@ -53,8 +57,8 @@ const ChapterForm = ({ onSubmitChapter, setRenderForm, setForked }) => {
             <textarea type='textarea' placeholder="Add Summary" value={summary} onChange={(e) => setSummary(e.target.value)}/>
         </div>
 
-        <input className="btn btn-block" type='submit' value="Save Chapter" onChange={(e) => onSubmit(e, true)}/><input 
-        className="btn btn-block" type='submit' value="Cancel" onChange={(e) => onSubmit(e, false)}/>
+        <input className="btn btn-block" type='submit' value="Save Chapter" onClick={() => setCancel(false)}/><input 
+        className="btn btn-block" type='submit' value="Cancel" onClick={() => setCancel(true)}/>
     </form>
   )
 }
