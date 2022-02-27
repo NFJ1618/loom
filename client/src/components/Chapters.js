@@ -18,7 +18,7 @@ const Chapters = ({ chapters, onChooseChild, updateLikes, onSubmitChapter, onDou
       <div className="topnav" id="myTopnav">
                 <Link to="/home">Home</Link>
                 <Link to="/signup">Sign up</Link>
-                <Link to="/groups">Groups</Link>
+                <Link to="/chapters">Chapters</Link>
                 <Link to="/logout" className="log">Log out</Link>
       </div>
       {chapters.map((chapter) => (

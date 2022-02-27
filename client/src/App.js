@@ -154,7 +154,7 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route exact path="/home" element={<Home />} />
             <Route exact path="/login" element={<LoginForm />} />
-            <Route exact path="/groups" element={<Chapters chapters={chapters} onChooseChild={onChooseChild} 
+            <Route exact path="/chapters" element={<Chapters chapters={chapters} onChooseChild={onChooseChild} 
             updateLikes={updateLikes} onSubmitChapter={onSubmitChapter} onDoubleClick={onDoubleClick}/>} />
             <Route exact path="/logout" element={<Home />} />
             <Route exact path="/signup" element={<SignupForm />} />
