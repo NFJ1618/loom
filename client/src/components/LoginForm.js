@@ -5,7 +5,6 @@ import "../styles/LoginForm.css"
 import { useNavigate } from "react-router-dom";
 var axios = require('axios');
 
-
 const LoginForm = () => {
     const [userInput, setUserInput] = useState(
         {
