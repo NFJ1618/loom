@@ -5,18 +5,12 @@ import ChapterForm from "./ChapterForm"
 import LoginForm from './LoginForm'
 
 const Chapters = ({ chapters, onChooseChild, updateLikes, onSubmitChapter }) => {
-  const noMoreChapters = { id: "-1", title: "This is the end of the story...", subtitle: "Or is it?", text: "It's time to write your own story!", likes: [-1] }
-  console.log(chapters)
+  const noMoreChapters = { id: "-1", title: "This is the end of the story...", subtitle: "Or is it?", text: "It's time to write your own story!", likes: [-1], contributor: {username: null} }
   return (
     <div>
       {chapters.map((chapter) => (
           <Chapter key={chapter.id} chapter={chapter} updateLikes={updateLikes}/>
-<<<<<<< HEAD
       ))}
-=======
-          ))}
-      <ChapterForm onSubmitChapter={onSubmitChapter}/>
->>>>>>> 4a5532d6f1b7e66fe2c2ed5fc38206b9259ffce7
       {chapters[chapters.length - 1].children.length > 0 ?
       <HorizontalScroll
         pageLock = {true}

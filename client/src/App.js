@@ -87,7 +87,25 @@ function App() {
     },
   ])*/
 
-  const [ chapters, setChapters ] = useState([])
+  const [ chapters, setChapters ] = useState([{
+    blurb: 'This is a brief summary',
+    summary: 'This is a much longer summary',
+    id: "0",
+    title: 'This is the chapter title',
+    subtitle: 'This is the chapter subtitle',
+    text: 'This is the text of the chapter',
+    likes: [],
+    contributor: "John",
+    children: [
+        {
+          blurb: 'This is a brief summary',
+          summary: 'This is a much longer summary',
+          id: "2",
+          text: 'This is the text of the chapter',
+          likes: [],
+          },
+    ] 
+  }])
 
   const getChapter = (chapterID) => {
     axios.get("http://localhost:5000/chapters/getChapter/" + chapterID).then((response) => {
@@ -96,7 +114,7 @@ function App() {
     })
   }
 
-  useEffect(async () => {
+  useEffect(() => {
     getChapter("621ac5c8688d17ae2bb23c21");
   }, []);
 
@@ -106,10 +124,12 @@ function App() {
   }
 
   const updateLikes = (id,v) => {
-    if (v == 1)
+    if (v == 1) {
       chapters.find(elem => (elem.id == id)).likes.push(0)
-    else
+    }
+    else {
       chapters.find(elem => (elem.id == id)).likes.pop()
+    }
   }
 
   const onSubmitChapter = (data) => {
