@@ -136,6 +136,12 @@ function App() {
       }
     })
   }
+
+  const onDoubleClick = (id) => {
+    const ind = chapters.findIndex((elem) => elem.id == id);
+    if (ind+1 != chapters.length)
+      setChapters(chapters.slice(ind+1))
+  }
   
   return(
       <div>
@@ -145,7 +151,7 @@ function App() {
             <Route exact path="/home" element={<Home />} />
             <Route exact path="/login" element={<LoginForm />} />
             <Route exact path="/groups" element={<Chapters chapters={chapters} onChooseChild={onChooseChild} 
-            updateLikes={updateLikes} onSubmitChapter={onSubmitChapter}/>} />
+            updateLikes={updateLikes} onSubmitChapter={onSubmitChapter} onDoubleClick={onDoubleClick}/>} />
             <Route exact path="/logout" element={<Home />} />
             <Route exact path="/signup" element={<SignupForm />} />
           </Routes>
