@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Chapters from "./components/Chapters";
+const axios = require('axios');
 
 
 function App() {
-  const [ chapters, setChapters ] = useState([
+  /*const [ chapters, setChapters ] = useState([
     {
       blurb: 'This is a brief summary',
       summary: 'This is a much longer summary',
@@ -12,16 +13,14 @@ function App() {
       subtitle: 'This is the chapter subtitle',
       text: 'This is the text of the chapter',
       likes: [],
+      contributor: "John",
       children: [
           {
             blurb: 'This is a brief summary',
             summary: 'This is a much longer summary',
             id: "2",
-            title: 'This is the chapter title',
-            subtitle: 'This is the chapter subtitle',
             text: 'This is the text of the chapter',
             likes: [],
-            children: []
             },
         ] 
     },
@@ -33,75 +32,77 @@ function App() {
       title: 'This is the chapter title',
       subtitle: 'This is the chapter subtitle',
       text: 'This is the text of the chapter',
+      contributor: "John",
       likes: [],
       children: [
           {
           blurb: 'This is a brief summary',
           summary: 'This is a much longer summary',
           id: "3",
-          title: 'This is the chapter title',
-          subtitle: 'This is the chapter subtitle',
           text: 'This is the text of the chapter',
+          contributor: "John",
           likes: [],
-          children: []
           },
           {
            blurb: 'This is a brief summary',
            summary: 'This is a much longer summary',
            id: "4",
-           title: 'This is the chapter title',
-           subtitle: 'This is the chapter subtitle',
            text: 'This is the text of the chapter',
+           contributor: "John",
            likes: [],
-           children:  []
           },
-                    {
+          {
           blurb: 'This is a brief summary',
           summary: 'This is a much longer summary',
           id: "5",
-          title: 'This is the chapter title',
-          subtitle: 'This is the chapter subtitle',
           text: 'This is the text of the chapter',
+          contributor: "John",
           likes: [],
-          children: [],
           },
           {
            blurb: 'This is a brief summary',
            summary: 'This is a much longer summary',
            id: "6",
-           title: 'This is the chapter title',
-           subtitle: 'This is the chapter subtitle',
            text: 'This is the text of the chapter',
+           contributor: "John",
            likes: [],
-           children: []
           },
           {
             blurb: 'This is a brief summary',
             summary: 'This is a much longer summary',
             id: "7",
-            title: 'This is the chapter title',
-            subtitle: 'This is the chapter subtitle',
             text: 'This is the text of the chapter',
+            contributor: "John",
             likes: [],
-            children: []
             },
           {
             blurb: 'This is a brief summary',
             summary: 'This is a much longer summary',
             id: "8",
-            title: 'This is the chapter title',
-            subtitle: 'This is the chapter subtitle',
             text: 'This is the text of the chapter',
+            contributor: "John",
             likes: [],
-            children: []
           },
         ] 
     },
-  ])
+  ])*/
+
+  const [ chapters, setChapters ] = useState([])
+
+  const getChapter = (chapterID) => {
+    axios.get("http://localhost:5000/chapters/getChapter/" + chapterID).then((response) => {
+      console.log(response.data);
+      setChapters([...chapters, response.data]);
+    })
+  }
+
+  useEffect(async () => {
+    getChapter("621ac5c8688d17ae2bb23c21");
+  }, []);
 
   const onChooseChild = (id) => {
-    const next = chapters[chapters.length - 1].children.find(elem => (elem.id == id));
-    setChapters([ ...chapters, next ])
+    //const next = chapters[chapters.length - 1].children.find(elem => (elem.id == id));
+    getChapter(id);
   }
 
   const updateLikes = (id,v) => {

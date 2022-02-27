@@ -26,6 +26,7 @@ const Chapter = ({ chapter, updateLikes }) => {
           />
         }
         <p>{chapter.text}</p>
+        <h4>{chapter.contributor.username}</h4>
     </div>
   )
 }
