@@ -11,10 +11,10 @@ function Home() {
         <div className="homepage">
             <div class="topnav" id="myTopnav">
                 <Link to="/home">Home</Link>
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Contact</Link>
+                <Link to="/login">Log in</Link>
+                <Link to="/signup">Sign up</Link>
                 <Link to="/groups">Groups</Link>
-                <Link to="/logout">Logout</Link>
+                <Link to="/logout" className="logout">Logout</Link>
             </div>
             <h1>Welcome</h1>
             <p>Collaborative Storytelling App</p>
