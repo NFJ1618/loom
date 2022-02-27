@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react'
 import Chapters from "./components/Chapters";
+import LoginForm from "./components/LoginForm";
+import ChapterForm from './components/ChapterForm';
+import Home from './components/Home';
+import { BrowserRouter, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import SignupForm from './components/SignupForm';
 const axios = require('axios');
-
 
 function App() {
   const [ chapters, setChapters ] = useState([
@@ -132,18 +136,22 @@ function App() {
       }
     })
   }
-
-  const onDoubleClick = (id) => {
-    const ind = chapters.findIndex((elem) => elem.id == id);
-    if (ind+1 != chapters.length)
-      setChapters(chapters.slice(ind+1))
-  }
-
-  return (
-    <div className="App">
-      <Chapters chapters={chapters} onChooseChild={onChooseChild} updateLikes={updateLikes} onSubmitChapter={onSubmitChapter} onDoubleClick={onDoubleClick}/>
-    </div>
-  );
+  
+  return(
+      <div>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/home" element={<Home />} />
+            <Route exact path="/login" element={<LoginForm />} />
+            <Route exact path="/groups" element={<Chapters chapters={chapters} onChooseChild={onChooseChild} 
+            updateLikes={updateLikes} onSubmitChapter={onSubmitChapter}/>} />
+            <Route exact path="/logout" element={<Home />} />
+            <Route exact path="/signup" element={<SignupForm />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+  )
 
 }
 

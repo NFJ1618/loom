@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import "../styles/LoginForm.css"
+import "../styles/SignupForm.css"
 import { useNavigate } from "react-router-dom";
 var axios = require('axios');
 
 
-const LoginForm = () => {
+const SignupForm = () => {
     const [userInput, setUserInput] = useState(
         {
             username: "",
@@ -18,27 +18,26 @@ const LoginForm = () => {
         e.preventDefault();
         // Use Axios POST request later
         console.log(userInput);
-        axios.post('http://localhost:5000/users/login', {
+        axios.post('http://localhost:5000/users/addUser', {
             username: userInput.username,
             password: userInput.password
         })
         .then(response => {
             console.log(response)
             if (response.status === 200) {
-                alert("Logged in!")
+                alert("Signed up!")
             }
         })
     }
 
     return (
-        <div className = "LoginForm">
+        <div className = "SignupForm">
             <div className="topnav" id="myTopnav">
                 <Link to="/home">Home</Link>
-                <Link to="/signup">Sign up</Link>
                 <Link to="/groups">Groups</Link>
                 <Link to="/login" className="log">Log in</Link>
             </div>
-            <h3>Login</h3>
+            <h3>Sign up</h3>
             <form onSubmit={e => handleSubmit(e)}>
             <h2>Username: </h2>
             <input 
@@ -57,10 +56,10 @@ const LoginForm = () => {
                 required
             />
             <p></p>
-             <button type="submit" className="loginButton">Login</button>
+             <button type="submit" className="signupButton">Sign up</button>
             </form>
         </div>
     )
 }
 
-export default LoginForm
+export default SignupForm
