@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import '../styles/LikeButton.css'
+import '../styles/LikeButton.css';
 
 const LikeButton = ({color, text, onClick}) => {
     return (

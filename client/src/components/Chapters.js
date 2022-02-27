@@ -6,8 +6,13 @@ import LoginForm from './LoginForm'
 import { useState } from "react"
 import { set } from "react-hook-form"
 
+<<<<<<< HEAD
 const Chapters = ({ chapters, onChooseChild, updateLikes, onSubmitChapter, onDoubleClick }) => {
   const noMoreChapters = { id: "-1", title: "This is the end of the story...", subtitle: "Or is it?", text: "It's time to write your own story!", likes: [-1] }
+=======
+const Chapters = ({ chapters, onChooseChild, updateLikes, onSubmitChapter, handleFork }) => {
+  const noMoreChapters = { id: "-1", title: "This is the end of the story...", subtitle: "Or is it?", text: "It's time to write your own story!", likes: [-1] , contributor: {username: null} }
+>>>>>>> 5c31469f6743b1271603dd7da0ef61a850c90251
   const [renderForm, setRenderForm] = useState(false)
   const [forked, setForked] = useState(false)
   const [id, setID] = useState(null)

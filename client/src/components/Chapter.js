@@ -41,6 +41,7 @@ const Chapter = ({ chapter, updateLikes, setRenderForm, forked, setForked, setID
         }
 
         <p>{chapter.text}</p>
+        {chapter.contributor.username && <h4>{chapter.contributor.username}</h4>}
     </div>
   )
 }
