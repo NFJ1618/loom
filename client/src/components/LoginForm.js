@@ -34,7 +34,7 @@ const LoginForm = () => {
             <div className="topnav" id="myTopnav">
                 <Link to="/home">Home</Link>
                 <Link to="/signup">Sign up</Link>
-                <Link to="/groups">Groups</Link>
+                <Link to="/chapters">Chapters</Link>
             </div>
             <div className="header-word">Login</div>
             <div>

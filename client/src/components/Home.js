@@ -18,7 +18,7 @@ function Home() {
                     <div className="topnav" id="myTopnav">
                         <Link to="/home">Home</Link>
                         <Link to="/signup">Sign up</Link>
-                        <Link to="/groups">Groups</Link>
+                        <Link to="/chapters">Chapters</Link>
                         <Link to="/logout" className="log">Log out</Link>
                     </div>
                     <h1>Welcome</h1>
@@ -36,11 +36,11 @@ function Home() {
             <div className="topnav" id="myTopnav">
                 <Link to="/home">Home</Link>
                 <Link to="/signup">Sign up</Link>
-                <Link to="/groups">Groups</Link>
+                <Link to="/chapters">Chapters</Link>
                 <Link to="/login" className="log">Log in</Link>
             </div>
-            <h1>Welcome</h1>
-            <p>Collaborative Storytelling App</p>
+            <h1>Loom</h1>
+            <p>Spin your Reality</p>
         </div>
     );
 }

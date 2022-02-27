@@ -34,8 +34,8 @@ const SignupForm = () => {
         <div className = "LoginForm">
             <div className="topnav" id="myTopnav">
                 <Link to="/home">Home</Link>
-                <Link to="/login">Log In</Link>
-                <Link to="/groups">Groups</Link>
+                <Link to="/login" className="log">Log in</Link>
+                <Link to="/chapters">Chapters</Link>
             </div>
             <div className="header-word">Sign Up</div>
             <div>
