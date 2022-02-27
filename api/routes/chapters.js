@@ -90,6 +90,20 @@ router.post('/addChapter', (req, res) => {
   }
 })
 
+router.post('/addLike', (req, res) => {
+    const chapterId = mongoose.Types.ObjectId(req.body.chapterId);
+    const userID = mongoose.Types.ObjectId(req.body.userID);
+    Chapter.findById(chapterId).then(chapter => {
+        chapter.likes.push(userID)
+        chapter.save()
+        })
+    User.findById(userID).then(user => {
+        user.likedPosts.push(userID)
+        user.save()
+        })
+    res.send("added like")
+  })
+
 
 
 module.exports = router;

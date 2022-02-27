@@ -112,11 +112,16 @@ function App() {
       chapters.find(elem => (elem.id == id)).likes.pop()
   }
 
+  const onSubmitChapter = (data) => {
+
+  }
+
   return (
     <div className="App">
-      <Chapters chapters={chapters} onChooseChild={onChooseChild} updateLikes={updateLikes}/>
+      <Chapters chapters={chapters} onChooseChild={onChooseChild} updateLikes={updateLikes} onSubmitChapter={onSubmitChapter}/>
     </div>
   );
+
 }
 
-export default App;
+export default App

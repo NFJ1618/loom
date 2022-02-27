@@ -1,0 +1,72 @@
+.ChapterForm {
+    margin-left: 10%;
+}
+
+.form-input {
+    width: 50%;
+    margin: 1%;
+    resize: none;
+}
+
+.form-button {
+    margin: 1%;
+}
+
+.add-form {
+    background-color: #282c34;
+    margin-bottom: 40px;
+  }
+  
+  .form-control {
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    margin: 20px 0;
+  }
+  
+  
+  .form-control input {
+    background-color: #282c34;
+    width: 80%;
+    height: 40px;
+    margin: 5px;
+    padding: 3px 7px;
+    font-size: 17px;
+    color: #fff;
+  }
+
+  .form-control textarea {
+    background-color: #282c34;
+    width: 80%;
+    height: 40px;
+    margin: 5px;
+    padding: 3px 7px;
+    font-size: 17px;
+    color: #fff;
+  }
+  .btn {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: inherit;
+  }
+  
+  .btn:focus {
+    outline: none;
+  }
+  
+  .btn:active {
+    transform: scale(0.98);
+  }
+  
+  .btn-block {
+    display: block;
+    width: 100%;
+  }

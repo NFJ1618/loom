@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import '../styles/Chapter.css'
 import LikeButton from './LikeButton'
+import './ChapterForm.js'
 
 const Chapter = ({ chapter, updateLikes }) => {
   const [liked, setLiked] = useState(false) // This needs to be initialised to true if liked by current user id.
