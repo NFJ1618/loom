@@ -4,7 +4,7 @@ const ObjectId = mongoose.Types.ObjectId;
 
 const chapterSchema = new Schema ({
     blurb: {type: String, required: true, maxLength: 50},
-    summary: {type: String, required: true},
+    summary: {type: String},
     text: {type: String, required: true},
     title: String,
     subtitle: String,
