@@ -116,6 +116,7 @@ function App() {
   const onSubmitChapter = (data) => {
 
   }
+<<<<<<< HEAD
   
   return(
     <div className="App">
@@ -127,6 +128,16 @@ function App() {
     <div className="App">
 
       <Chapters chapters={chapters} onChooseChild={onChooseChild} updateLikes={updateLikes} onSubmitChapter={onSubmitChapter}/>
+=======
+
+  const handleFork = () => {
+
+  }
+
+  return (
+    <div className="App">
+      <Chapters chapters={chapters} onChooseChild={onChooseChild} updateLikes={updateLikes} onSubmitChapter={onSubmitChapter} handleFork={handleFork}/>
+>>>>>>> main
     </div>
   );*/
 
