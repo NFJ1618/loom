@@ -13,6 +13,7 @@ const passport = require('passport')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var chapterRouter = require('./routes/chapters');
+var groupRouter = require('./routes/groups')
 var flash = require('express-flash')
 var session = require('express-session')
 
@@ -48,6 +49,7 @@ connection.once('open', () => {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/chapters',chapterRouter);
+app.use('/groups', groupRouter);
 
 // error handler
 app.use(function(err, req, res, next) {

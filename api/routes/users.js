@@ -3,6 +3,8 @@ var router = express.Router();
 var bcrypt = require('bcrypt');
 const passport = require('passport')
 let User = require('../models/user.model')
+let Group = require('../models/group.model')
+const mongoose = require('mongoose');
 const initializePassport = require('../passport-config')
  initializePassport(
   passport,
@@ -63,6 +65,24 @@ router.get('/loggedin', (req, res) => {
         res.send(false);
     }
 })
+
+router.get('/groups', async (req, res) => {
+  const username = req.body.username;
+    console.log(username)
+    let user = await User.findOne({username: req.body.username})
+    if (user == null){
+        return res.status(400).json('User not found')
+    } else{
+      groupnames = []
+      for (let i = 0; i < user.groups.length; i++){
+        console.log(user.groups)
+        let group = await Group.findById(mongoose.Types.ObjectId(user.groups[i]))
+        groupnames.push(group.name)
+      }
+      res.send(groupnames)
+    }
+})
+
 
 router.post('/logout', (req, res) => {
   req.logOut()
