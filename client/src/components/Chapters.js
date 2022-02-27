@@ -4,7 +4,6 @@ import HorizontalScroll from 'react-scroll-horizontal'
 import ChapterForm from "./ChapterForm"
 import LoginForm from './LoginForm'
 import { useState } from "react"
-import { set } from "react-hook-form"
 
 const Chapters = ({ chapters, onChooseChild, updateLikes, onSubmitChapter, onDoubleClick }) => {
   const noMoreChapters = { id: "-1", title: "This is the end of the story...", subtitle: "Or is it?", text: "It's time to write your own story!", likes: [-1], contributor: {username: null} }

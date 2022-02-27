@@ -22,7 +22,7 @@ const Chapter = ({ chapter, updateLikes, setRenderForm, forked, setForked, setID
   }
 
   return (
-    <div className='Chapter' onDoubleClick={onDoubleClick}>
+    <div className='Chapter' onDoubleClick={() => onDoubleClick(chapter.id)}>
         <h1>{chapter.title}</h1>
         <h2>{chapter.subtitle}</h2>
         {
