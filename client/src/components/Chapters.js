@@ -6,7 +6,7 @@ import LoginForm from './LoginForm'
 import { useState } from "react"
 import { set } from "react-hook-form"
 
-const Chapters = ({ chapters, onChooseChild, updateLikes, onSubmitChapter, handleFork }) => {
+const Chapters = ({ chapters, onChooseChild, updateLikes, onSubmitChapter, onDoubleClick }) => {
   const noMoreChapters = { id: "-1", title: "This is the end of the story...", subtitle: "Or is it?", text: "It's time to write your own story!", likes: [-1] }
   const [renderForm, setRenderForm] = useState(false)
   const [forked, setForked] = useState(false)
@@ -15,9 +15,10 @@ const Chapters = ({ chapters, onChooseChild, updateLikes, onSubmitChapter, handl
   return (
     <div>
       {chapters.map((chapter) => (
-          <Chapter key={chapter.id} chapter={chapter} updateLikes={updateLikes} setRenderForm={setRenderForm} forked={forked} setForked={setForked} setID={setID}/>
+          <Chapter key={chapter.id} chapter={chapter} updateLikes={updateLikes} setRenderForm={setRenderForm} forked={forked} setForked={setForked} setID={setID} onDoubleClick={onDoubleClick}/>
           ))}
       {renderForm && <ChapterForm onSubmitChapter={onSubmitChapter} setRenderForm={setRenderForm} setForked={setForked} _id={id} setID={setID}/>}
+      console.log(chapters)
       {chapters[chapters.length - 1].children.length > 0 ?
       <HorizontalScroll
         pageLock = {true}

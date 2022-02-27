@@ -112,16 +112,19 @@ function App() {
   }
 
   const onSubmitChapter = (data) => {
-
+    
   }
 
-  const handleFork = () => {
-
+  const onDoubleClick = (id) => {
+    console.log(chapters)
+    const ind = chapters.findIndex(elem => (elem == id));
+    setChapters(chapters.slice(0,ind+1))
+    console.log(chapters)
   }
 
   return (
     <div className="App">
-      <Chapters chapters={chapters} onChooseChild={onChooseChild} updateLikes={updateLikes} onSubmitChapter={onSubmitChapter} handleFork={handleFork}/>
+      <Chapters chapters={chapters} onChooseChild={onChooseChild} updateLikes={updateLikes} onSubmitChapter={onSubmitChapter} onDoubleClick={onDoubleClick}/>
     </div>
   );
 
