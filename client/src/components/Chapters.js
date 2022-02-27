@@ -9,14 +9,15 @@ import { set } from "react-hook-form"
 const Chapters = ({ chapters, onChooseChild, updateLikes, onSubmitChapter, handleFork }) => {
   const noMoreChapters = { id: "-1", title: "This is the end of the story...", subtitle: "Or is it?", text: "It's time to write your own story!", likes: [-1] , contributor: {username: null} }
   const [renderForm, setRenderForm] = useState(false)
-  const [forked, setForked] = useState(null)
+  const [forked, setForked] = useState(false)
+  const [id, setID] = useState(null)
 
   return (
     <div>
       {chapters.map((chapter) => (
-          <Chapter key={chapter.id} chapter={chapter} updateLikes={updateLikes} setRenderForm={setRenderForm} forked={forked} setForked={setForked}/>
+          <Chapter key={chapter.id} chapter={chapter} updateLikes={updateLikes} setRenderForm={setRenderForm} forked={forked} setForked={setForked} setID={setID}/>
           ))}
-      {renderForm && <ChapterForm onSubmitChapter={onSubmitChapter} setRenderForm={setRenderForm} setForked={setForked}/>}
+      {renderForm && <ChapterForm onSubmitChapter={onSubmitChapter} setRenderForm={setRenderForm} setForked={setForked} _id={id} setID={setID}/>}
       {chapters[chapters.length - 1].children.length > 0 ?
       <HorizontalScroll
         pageLock = {true}
