@@ -27,7 +27,7 @@ const ChapterForm = ({ onSubmitChapter, setRenderForm, setForked, _id, setID }) 
             alert("Please write a blurb with less than 50 characters before submitting!")
             return false
         }
-        const data = { text: text, title: title, subtitle: subtitle, blurb: blurb, summary: summary, id: _id }
+        const data = { text: text, title: title, subtitle: subtitle, blurb: blurb, summary: summary, parent: _id, contributor: "621a74643534549d05412cc2" }
         onSubmitChapter(data)
         setID(null)
         setRenderForm(false)

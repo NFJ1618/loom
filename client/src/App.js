@@ -89,13 +89,13 @@ function App() {
 
   const [ chapters, setChapters ] = useState([{
     blurb: 'This is a brief summary',
-    summary: 'This is a much longer summary',
+    summary: 'This is clearly a much longer summary',
     id: "0",
-    title: 'This is the chapter title',
-    subtitle: 'This is the chapter subtitle',
-    text: 'This is the text of the chapter',
+    title: 'The Most Meaningful Text',
+    subtitle: 'Truly artistic prose',
+    text: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
     likes: [],
-    contributor: "John",
+    contributor: "Dease N.",
     children: [
         {
           blurb: 'This is a brief summary',
@@ -114,10 +114,6 @@ function App() {
     })
   }
 
-  useEffect(() => {
-    getChapter("621ac5c8688d17ae2bb23c21");
-  }, []);
-
   const onChooseChild = (id) => {
     //const next = chapters[chapters.length - 1].children.find(elem => (elem.id == id));
     getChapter(id);
@@ -133,16 +129,18 @@ function App() {
   }
 
   const onSubmitChapter = (data) => {
-
-  }
-
-  const handleFork = () => {
-
+    axios.post('http://localhost:5000/chapters/addChapter', data).then(response => {
+      if (response.data == "error") {console.log("error")}
+      else {
+        const newChapter = response.data;
+        getChapter(newChapter);
+      }
+    })
   }
 
   return (
     <div className="App">
-      <Chapters chapters={chapters} onChooseChild={onChooseChild} updateLikes={updateLikes} onSubmitChapter={onSubmitChapter} handleFork={handleFork}/>
+      <Chapters chapters={chapters} onChooseChild={onChooseChild} updateLikes={updateLikes} onSubmitChapter={onSubmitChapter}/>
     </div>
   );
 
