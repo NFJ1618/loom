@@ -9,14 +9,16 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 var mongoose = require('mongoose');
-const passport = require('passport')
+const passport = require('passport');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var chapterRouter = require('./routes/chapters');
-var flash = require('express-flash')
-var session = require('express-session')
+var flash = require('express-flash');
+var session = require('express-session');
 
 var app = express();
+app.listen(5000);
 
 
 // view engine setup
@@ -59,7 +61,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-app.listen(process.env.PORT || 5000);
 
 module.exports = app;
