@@ -117,9 +117,13 @@ function App() {
   const updateLikes = (id,v) => {
     if (v == 1) {
       chapters.find(elem => (elem.id == id)).likes.push(0)
+      axios.post('http://localhost:5000/chapters/addLike', {chapterId: id, userID: "621a74643534549d05412cc2"})
+      .then(response => {})
     }
     else {
       chapters.find(elem => (elem.id == id)).likes.pop()
+      axios.post('http://localhost:5000/chapters/undoLike', {chapterId: id, userID: "621a74643534549d05412cc2"})
+      .then(response => {})
     }
   }
 

@@ -96,12 +96,25 @@ router.post('/addLike', (req, res) => {
         chapter.save()
         })
     User.findById(userID).then(user => {
-        user.likedPosts.push(userID)
+        user.likedPosts.push(chapterId)
         user.save()
         })
     res.send("added like")
   })
 
+router.post('/undoLike', (req, res) => {
+  const chapterId = mongoose.Types.ObjectId(req.body.chapterId);
+  const userID = mongoose.Types.ObjectId(req.body.userID);
+  Chapter.findById(chapterId).then(chapter => {
+      chapter.likes.remove(userID)
+      chapter.save()
+      })
+  User.findById(userID).then(user => {
+      user.likedPosts.remove(chapterId)
+      user.save()
+      })
+  res.send("added like")
+})
 
 
 module.exports = router;
