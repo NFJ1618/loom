@@ -52,4 +52,26 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+    width: 100%;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.my-form {
+  width: 300px;
+}
+
+.loginButton {
+  font-size: 1rem;
+}
+
+.header-word {
+  font-size: 2rem;
+  margin-bottom: 50px;
 }
