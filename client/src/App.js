@@ -4,6 +4,7 @@ import LoginForm from "./components/LoginForm";
 import ChapterForm from './components/ChapterForm';
 import Home from './components/Home';
 import { BrowserRouter, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import SignupForm from './components/SignupForm';
 
 function App() {
   const [ chapters, setChapters ] = useState([
@@ -123,9 +124,12 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/home" element={<Home />} />
             <Route exact path="/login" element={<LoginForm />} />
             <Route exact path="/groups" element={<Chapters chapters={chapters} onChooseChild={onChooseChild} 
             updateLikes={updateLikes} onSubmitChapter={onSubmitChapter}/>} />
+            <Route exact path="/logout" element={<Home />} />
+            <Route exact path="/signup" element={<SignupForm />} />
           </Routes>
         </BrowserRouter>
       </div>

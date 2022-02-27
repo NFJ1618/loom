@@ -5,6 +5,7 @@ import ChapterForm from "./ChapterForm"
 import LoginForm from './LoginForm'
 import { useState } from "react"
 import { set } from "react-hook-form"
+import { Link } from "react-router-dom"
 
 const Chapters = ({ chapters, onChooseChild, updateLikes, onSubmitChapter, handleFork }) => {
   const noMoreChapters = { id: "-1", title: "This is the end of the story...", subtitle: "Or is it?", text: "It's time to write your own story!", likes: [-1] }
@@ -13,6 +14,12 @@ const Chapters = ({ chapters, onChooseChild, updateLikes, onSubmitChapter, handl
 
   return (
     <div>
+      <div className="topnav" id="myTopnav">
+                <Link to="/home">Home</Link>
+                <Link to="/signup">Sign up</Link>
+                <Link to="/groups">Groups</Link>
+                <Link to="/logout" className="log">Log out</Link>
+      </div>
       {chapters.map((chapter) => (
           <Chapter key={chapter.id} chapter={chapter} updateLikes={updateLikes} setRenderForm={setRenderForm} forked={forked} setForked={setForked}/>
           ))}
