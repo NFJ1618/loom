@@ -24,7 +24,7 @@ const Chapter = ({ chapter, updateLikes, setRenderForm, forked, setForked, setID
   return (
     <div className='Chapter' onDoubleClick={() => onDoubleClick(chapter.id)}>
         <h2 style={{margin: "25px 0px"}}>{chapter.title}</h2>
-        <h4 style={{margin: "0px"}}>{chapter.subtitle}</h4>
+        <h4 style={{"margin-bottom": "25px", "margin-top": "0px"}}>{chapter.subtitle}</h4>
         {
           (chapter.likes && chapter.likes[0] != -1 || !chapter.likes) && 
           <div>
