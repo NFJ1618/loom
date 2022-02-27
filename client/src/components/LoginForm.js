@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import "../styles/LoginForm.css"
+import { useNavigate } from "react-router-dom";
+var axios = require('axios');
+
 
 const LoginForm = () => {
     const [userInput, setUserInput] = useState(
@@ -14,10 +18,26 @@ const LoginForm = () => {
         e.preventDefault();
         // Use Axios POST request later
         console.log(userInput);
+        axios.post('http://localhost:5000/users/login', {
+            username: userInput.username,
+            password: userInput.password
+        })
+        .then(response => {
+            console.log(response)
+            if (response.status === 200) {
+                alert("Logged in!")
+            }
+        })
     }
 
     return (
         <div className = "LoginForm">
+            <div className="topnav" id="myTopnav">
+                <Link to="/home">Home</Link>
+                <Link to="/signup">Sign up</Link>
+                <Link to="/groups">Groups</Link>
+                <Link to="/login" className="log">Log in</Link>
+            </div>
             <h3>Login</h3>
             <form onSubmit={e => handleSubmit(e)}>
             <h2>Username: </h2>
@@ -36,6 +56,7 @@ const LoginForm = () => {
                 onChange={e => setUserInput({...userInput, password: e.target.value})}
                 required
             />
+            <p></p>
              <button type="submit" className="loginButton">Login</button>
             </form>
         </div>

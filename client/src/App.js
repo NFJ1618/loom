@@ -3,6 +3,7 @@ import Chapters from "./components/Chapters";
 import LoginForm from "./components/LoginForm";
 import ChapterForm from './components/ChapterForm';
 import Home from './components/Home';
+import { BrowserRouter, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   const [ chapters, setChapters ] = useState([
@@ -118,9 +119,16 @@ function App() {
   }
   
   return(
-    <div className="App">
-      <Home></Home>
-    </div>
+      <div>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/login" element={<LoginForm />} />
+            <Route exact path="/groups" element={<Chapters chapters={chapters} onChooseChild={onChooseChild} 
+            updateLikes={updateLikes} onSubmitChapter={onSubmitChapter}/>} />
+          </Routes>
+        </BrowserRouter>
+      </div>
   )
   /*
   return (
