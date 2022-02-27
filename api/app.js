@@ -14,8 +14,9 @@ const passport = require('passport');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var chapterRouter = require('./routes/chapters');
-var flash = require('express-flash');
-var session = require('express-session');
+var groupRouter = require('./routes/groups')
+var flash = require('express-flash')
+var session = require('express-session')
 
 var app = express();
 app.listen(5000);
@@ -50,6 +51,7 @@ connection.once('open', () => {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/chapters',chapterRouter);
+app.use('/groups', groupRouter);
 
 // error handler
 app.use(function(err, req, res, next) {
