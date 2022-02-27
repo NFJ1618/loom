@@ -48,7 +48,6 @@ router.get('/getChapter/:chapterId', (req, res) => {
           likes: chapter.likes,
           children: previews,
       })
-      console.log(previews)
     }
   })
   .catch(err => res.status(400).json(err))
@@ -58,7 +57,7 @@ router.post('/addChapter', (req, res) => {
   var newChapter = new Chapter({
     blurb: req.body.blurb,
     summary: req.body.summary,
-    text: req.body.summary,
+    text: req.body.text,
     likes: [],
     title: req.body.title,
     subtitle: req.body.subtitle,
@@ -81,12 +80,11 @@ router.post('/addChapter', (req, res) => {
       newChapter.group = parent.group;
       newChapter.save().then((savedChapter, err) => {
         newID = savedChapter._id;
-        console.log(newID)
         parent.children.push(newID);
         parent.save();
-        res.json({chapterID: newID});
+        res.json(savedChapter._id);
       })
-    })
+    }).catch(err => {res.send("error")})
   }
 })
 

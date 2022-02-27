@@ -90,21 +90,16 @@ function App() {
   const [ chapters, setChapters ] = useState([{
     blurb: 'This is a brief summary',
     summary: 'This is clearly a much longer summary',
-    id: "0",
+    id: "621aeb86573732e27fbcb89b",
     title: 'The Most Meaningful Text',
     subtitle: 'Truly artistic prose',
     text: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
     likes: [],
-    contributor: "Dease N.",
-    children: [
-        {
-          blurb: 'This is a brief summary',
-          summary: 'This is a much longer summary',
-          id: "2",
-          text: 'This is the text of the chapter',
-          likes: [],
-          },
-    ] 
+    contributor: {
+      username: "MrDeez",
+      id: "621aea52573732e27fbcb898"
+    },
+    children: [] 
   }])
 
   const getChapter = (chapterID) => {
