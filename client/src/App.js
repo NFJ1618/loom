@@ -5,7 +5,7 @@ const axios = require('axios');
 
 
 function App() {
-  /*const [ chapters, setChapters ] = useState([
+  const [ chapters, setChapters ] = useState([
     {
       blurb: 'This is a brief summary',
       summary: 'This is a much longer summary',
@@ -86,8 +86,8 @@ function App() {
           },
         ] 
     },
-  ])*/
-
+  ])
+/*
   const [ chapters, setChapters ] = useState([{
     blurb: 'This is a brief summary',
     summary: 'This is clearly a much longer summary',
@@ -101,7 +101,7 @@ function App() {
       id: "621aea52573732e27fbcb898"
     },
     children: [] 
-  }])
+  }])*/
 
   const getChapter = (chapterID) => {
     axios.get("http://localhost:5000/chapters/getChapter/" + chapterID).then((response) => {
@@ -138,9 +138,15 @@ function App() {
     })
   }
 
+  const onDoubleClick = (id) => {
+    const ind = chapters.findIndex((elem) => elem.id == id);
+    if (ind+1 != chapters.length)
+      setChapters(chapters.slice(ind+1))
+  }
+
   return (
     <div className="App">
-      <Chapters chapters={chapters} onChooseChild={onChooseChild} updateLikes={updateLikes} onSubmitChapter={onSubmitChapter}/>
+      <Chapters chapters={chapters} onChooseChild={onChooseChild} updateLikes={updateLikes} onSubmitChapter={onSubmitChapter} onDoubleClick={onDoubleClick}/>
     </div>
   );
 

@@ -3,7 +3,7 @@ import '../styles/Chapter.css'
 import LikeButton from './LikeButton'
 import './ChapterForm.js'
 
-const Chapter = ({ chapter, updateLikes, setRenderForm, forked, setForked, setID}) => {
+const Chapter = ({ chapter, updateLikes, setRenderForm, forked, setForked, setID, onDoubleClick}) => {
   const [liked, setLiked] = useState(false) // This needs to be initialised to true if liked by current user id.
   
 
@@ -22,10 +22,9 @@ const Chapter = ({ chapter, updateLikes, setRenderForm, forked, setForked, setID
   }
 
   return (
-    <div className='Chapter'>
+    <div className='Chapter' onDoubleClick={() => onDoubleClick(chapter.id)}>
         <h2 style={{margin: "25px 0px"}}>{chapter.title}</h2>
         <h4 style={{margin: "0px"}}>{chapter.subtitle}</h4>
-        {chapter.contributor.username && <h4 className='author-box'>{chapter.contributor.username}</h4>}
         {
           (chapter.likes && chapter.likes[0] != -1 || !chapter.likes) && 
           <div>

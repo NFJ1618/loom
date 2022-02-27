@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 import Chapter from "./Chapter";
 import '../styles/ChapterForm.css'
 
